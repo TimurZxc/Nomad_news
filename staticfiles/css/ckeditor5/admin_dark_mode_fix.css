@@ -1,0 +1,11 @@
+.ck.ck-editor {
+    color: black !important;
+}
+.language-plaintext{
+    color: black !important;
+}
+/* Target the editor content area */
+.ck-content {
+    background-color: #2e2e2e !important;  /* Example dark background */
+    color: #ffffff !important;            /* White text */
+}

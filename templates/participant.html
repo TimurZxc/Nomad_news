@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_filters %}
+<div class="all-news-container">
+    <div class="news-content">
+        <img class="news-detail-image" src="{{ participant.image.url }}" alt="">
+        <h1>{{ participant.full_name }}</h1>
+        <h4>Должность: {{ participant.position }}</h4>
+        <h4>Место работы: {{ participant.work_place }}</h4>
+        <div class="news-text">
+            <p>{{ participant.description|safe }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+lorem500

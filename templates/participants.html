@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_filters %}
+<div class="all-news-container">
+    <h1 class="all-news-title">Участники</h1>
+    <div class="news-container">
+        <div class="main-block-news-items">
+            {% for participant in participants_list %}
+            <div class="main-block-news-item">
+                <div>
+                    <a href="{% url 'participant' participant.id %}"><img src="{{ participant.image.url }}" alt=""></a>
+                </div>
+                <div class="news-info">
+                    <a href="{% url 'participant' participant.id %}">
+                        <h2>{{ participant.full_name }}</h2>
+                    </a>
+                    <h4>Должность: {{ participant.position }}</h4>
+                    <h4>Место работы: {{ participant.work_place }}</h4>
+                    <p>{{ participant.description|truncate:750|safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+            {% else %}
+            <span class="disabled">&laquo;</span>
+            {% endif %}
+
+            {% for i in page_obj.paginator.page_range %}
+            {% if page_obj.number == i %}
+            <span class="current active">{{ i }}</span>
+            {% elif i == page_obj.number|add:'-1' or i == page_obj.number|add:'1' %}
+            <a href="?page={{ i }}">{{ i }}</a>
+            {% elif i == 1 or i == page_obj.paginator.num_pages %}
+            <a href="?page={{ i }}">{{ i }}</a>
+            {% elif i == page_obj.number|add:'-2' or i == page_obj.number|add:'2' %}
+            <span class="ellipsis">...</span>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+            {% else %}
+            <span class="disabled">&raquo;</span>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

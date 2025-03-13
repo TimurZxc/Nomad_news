@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/2108575a2f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Nomad</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="{% url 'main' %}">
+                <img class="logo-image-gold" src="{% static 'main_images/logo_gold.png' %}" alt="">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'all_news' %}">Новости</a>
+            <a href="{% url 'participants' %}">Участники</a>
+            <a href="{% url 'events' %}">Мероприятия</a>
+            <a href="#">Достижения</a>
+            <!-- <a href="#">Результаты</a> -->
+        </div>
+    </nav>
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer>
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <div class="footer-contacts-items">
+                <p>Тел.: +7(999)999-99-99</p>
+                <p>Адрес: г. Астана, ул. Пушкина, д. 17</p>
+                <p>Эл. почта: 6BzYt@example.com</p>
+                <p>Сайт: www.nomad-news.kz</p>
+            </div>
+        </div>
+        <div class="footer-work-time">
+            <h3>Время работы</h3>
+            <p>Пн-Пт: 9:00 - 18:00</p>
+            <p>Сб-Вс: выходной</p>
+        </div>
+        <div class="footer-links">
+            <h3>Ссылки</h3>
+            <div class="footer-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'js/main-slider.js' %}"></script>
+
+</html>

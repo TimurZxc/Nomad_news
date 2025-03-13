@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_filters %}
+<div class="all-news-container">
+    <div class="news-content">
+        <img class="news-detail-image" src="{{ news.image.url }}" alt="">
+        <h1>{{ news.title }}</h1>
+        <div class="news-text">
+            {{ news.text|safe }}
+        </div>
+    </div>
+    {% if news.files.all %}
+    <div class="news-files">
+        <h2>Вложения</h2>
+        {% for file in news.files.all %}
+        
+        <a href="{{ file.file.url }}"><span> 📑 </span>{{ file.file.name|basename }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

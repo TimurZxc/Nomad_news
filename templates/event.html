@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="event-detail">
+    <h1>{{ event.name }}</h1>
+    {% if event.description %}
+    <div class="event-description">
+        {{ event.description|safe }}
+    </div>
+    {% endif %}
+    {% if event.tasks %}
+    <h2>Задачи</h2>
+    <div class="event-description">
+        {{ event.tasks|safe }}
+    </div>
+    {% endif %}
+    {% if event.participants %}
+    <h2>Участники</h2>
+    <div class="event-description">
+        {{ event.participants|safe }}
+    </div>
+    {% endif %}
+    <!-- Image Horizontal Overflow Slider -->
+    {% if event.images.all %}
+    <section class="slider-section">
+        <h2>Фотографии</h2>
+        <div class="horizontal-slider-wrapper">
+            <div class="horizontal-slider" id="image-slider">
+                {% for image in event.images.all %}
+                <div class="slider-item">
+                    <img src="{{ image.image.url }}" alt="{{ event.name }} image" onclick="openModal('{{ image.image.url }}')">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <!-- Video Horizontal Overflow Slider -->
+    {% if event.videos.all %}
+    <section class="slider-section">
+        <h2>Видео</h2>
+        <div class="horizontal-slider-wrapper">
+            <div class="horizontal-slider" id="video-slider">
+                {% for video in event.videos.all %}
+                <div class="slider-item">
+                    <img src="{{ video.preview.url }}" alt="Video Preview" onclick="openVideoModal('{{ video.video_id }}')">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</div>
+<div id="fullscreenModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+<!-- Fullscreen Modal for Video -->
+<div id="videoModal" class="modal" onclick="closeVideoModal()">
+    <span class="close" onclick="closeVideoModal()">&times;</span>
+    <div class="video-modal-content">
+        <iframe id="videoIframe" width="900" height="515" src="" frameborder="0" allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
+    </div>
+</div>
+{% endblock %}
