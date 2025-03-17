@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function adjustHeight() {
       const screenWidth = window.innerWidth;           // Get the current width of the screen
-      const targetHeight = (screenWidth * 1.5) / 3.6;    // Calculate the height with the ratio 2:1.5
+      const targetHeight = (screenWidth * 1.5) / 4;    // Calculate the height with the ratio 2:1.5
 
       divs.forEach(div => {
           div.style.height = `${targetHeight}px`;     // Set the new height for each div

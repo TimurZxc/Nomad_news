@@ -3,7 +3,11 @@
 {% block content %}
 {% load custom_filters %}
 <div class="all-news-container">
-    <h1 class="all-news-title">Все новости</h1>
+    {% if all_news_list %}
+        <h1 class="all-news-title">Все новости</h1>
+    {% else %}
+        <h1 class="all-news-title">Новостей пока нет</h1>
+    {% endif %}
     <div class="news-container">
         <div class="main-block-news-items">
             {% for news in all_news_list %}

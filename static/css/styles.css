@@ -55,6 +55,13 @@ main {
     gap: 50px;
 }
 
+.ratioDiv {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Optional: centers the image within the container */
+}
+
 .nav-links a {
     text-decoration: none;
     color: #c0a062;
