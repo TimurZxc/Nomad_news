@@ -59,9 +59,12 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; /* Optional: centers the image within the container */
+    object-position: center;
+    /* Optional: centers the image within the container */
 }
-
+.nav-toggle{
+    display: none;
+}
 .nav-links a {
     text-decoration: none;
     color: #c0a062;
@@ -82,7 +85,7 @@ main {
     float: left;
     margin: 5px 15px 15px 0;
     /* adds space on the right and bottom */
-    width: 350px;
+    width: 320px;
     border-radius: 1rem;
     /* adjust to your desired width */
 }
@@ -91,12 +94,15 @@ main {
     overflow: hidden;
     /* clears the float if necessary */
 }
-.news-content h4{
+
+.news-content h4 {
     margin-top: 1.5rem;
 }
-.news-content p{
+
+.news-content p {
     margin-top: 1.5rem;
 }
+
 .news-files {
     display: flex;
     flex-direction: column;
@@ -306,12 +312,14 @@ footer {
     color: white;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .footer-contacts {
     display: flex;
     flex-direction: column;
-    gap: 25px
+    gap: 25px;
+    padding: 0 10px;
 }
 
 .footer-contacts h3 {
@@ -327,12 +335,17 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 0 10px;
 }
 
 .footer-contacts-items {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.footer-links {
+    padding: 0 10px;
 }
 
 .footer-links h3 {
@@ -401,12 +414,13 @@ button {
     border-bottom: solid 1px grey;
     padding-bottom: 2rem;
 }
-.main-block-news-item:last-child{
+
+.main-block-news-item:last-child {
     border: none;
 }
 
 .main-block-news-item img {
-    width: 350px;
+    width: 320px;
     height: 300px;
     border-radius: 1rem;
     object-fit: cover;
@@ -444,7 +458,7 @@ button {
 }
 
 .swiper-wrapper img {
-    width: 350px;
+    width: 320px;
     height: 250px;
 }
 
@@ -458,7 +472,7 @@ button {
 }
 
 .slider-item img {
-    width: 350px;
+    width: 320px;
     /* height: 250px; */
     border-radius: 1rem;
     cursor: pointer;
@@ -473,7 +487,7 @@ button {
 }
 
 .event-image {
-    width: 350px;
+    width: 320px;
     height: 300px;
     display: flex;
     justify-content: center;
@@ -483,12 +497,12 @@ button {
 }
 
 .event-image img {
-    width: 350px;
+    width: 320px;
     height: 300px;
 }
 
 .event-image a {
-    width: 350px;
+    width: 320px;
     height: 300px;
 }
 
@@ -555,4 +569,99 @@ button {
 
 .news-info p {
     font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    /* When active, expand the container – adjust the max-height as needed */
+    .nav-links.active {
+        margin-bottom: 10px;
+        max-height: 500px;
+        text-decoration: none;
+        /* This value should be high enough to fit your content */
+    }
+    /* Style for the toggle button */
+    .nav-toggle {
+        background: none;
+        border: 1px solid gray;
+        width: 100px;
+        border-radius: 5px;
+        font-size: 1.2em;
+        cursor: pointer;
+        outline: none;
+        display: block;
+    }
+
+    /* Rotate arrow icon smoothly when toggled */
+    .nav-toggle i {
+        transition: transform 0.3s;
+    }
+
+    .nav-toggle.active i {
+        transform: rotate(180deg);
+    }
+
+    /* Other mobile styles remain unchanged */
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .main-block-news {
+        text-align: center;
+    }
+
+    .main-block-news-item {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .all-news-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .event-image {
+        margin: 0 auto;
+    }
+    .event-detail{
+        text-align: center;
+    }
+    .news-detail-image{
+        margin: 0;
+    }
+}
+
+@media (max-width: 626px) {
+    footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .news-info {
+        padding: 0 15px;
+    }
+    .main-block-news{
+        padding: 0 15px;
+    }
+    .event-detail{
+        padding: 0 15px;
+    }
+    .news-text{
+        padding: 0 15px;
+    }
 }
