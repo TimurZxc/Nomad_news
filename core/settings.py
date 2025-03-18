@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-58xukmnoo25bf()%2#$zx14c*rzh!m)2yji$j5h&h9$hwip%1f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nomad-news.digitalforensics.kz', '127.0.0.1', 'localhost', '85.159.27.238']
 
 
 # Application definition
@@ -66,10 +66,21 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # Database backend (PostgreSQL in this example)
+        'NAME': 'nomad_db',                       # Name of the database
+        'USER': 'nomad',                   # Your database username
+        'PASSWORD': 'S3cret!@#123',                   # Your database password
+        'HOST': 'localhost',                        # Database host (e.g., localhost, an IP address, or domain)
+        'PORT': '5555',                             # Database port (default for PostgreSQL)
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -106,12 +117,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'staticfiles/'
+STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 
