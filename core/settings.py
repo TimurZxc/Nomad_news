@@ -64,23 +64,23 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',  # Database backend (PostgreSQL in this example)
-#         'NAME': 'nomad_db',                       # Name of the database
-#         'USER': 'nomad',                   # Your database username
-#         'PASSWORD': 'S3cret!@#123',                   # Your database password
-#         'HOST': 'localhost',                        # Database host (e.g., localhost, an IP address, or domain)
-#         'PORT': '5555',                             # Database port (default for PostgreSQL)
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # Database backend (PostgreSQL in this example)
+        'NAME': 'nomad_db',                       # Name of the database
+        'USER': 'nomad',                   # Your database username
+        'PASSWORD': 'S3cret!@#123',                   # Your database password
+        'HOST': 'localhost',                        # Database host (e.g., localhost, an IP address, or domain)
+        'PORT': '5555',                             # Database port (default for PostgreSQL)
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

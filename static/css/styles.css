@@ -47,7 +47,7 @@ nav {
 }
 
 main {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .nav-links {
@@ -312,7 +312,6 @@ footer {
     color: white;
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
 }
 
 .footer-contacts {
