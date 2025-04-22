@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-58xukmnoo25bf()%2#$zx14c*rzh!m)2yji$j5h&h9$hwip%1f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['nomad-news.digitalforensics.kz', '127.0.0.1', 'localhost', '85.159.27.238']
 
