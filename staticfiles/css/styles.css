@@ -70,11 +70,23 @@ li {
     margin-top: 0.5em;
     font-weight: bold;
 }
-
-.language-switcher a{
-   text-decoration: none;
+.language-switcher{
+    display: flex;
+    justify-content: end;
+    gap: 0.2rem;
 }
-
+.language-switcher a{
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 2px;
+    transition: 0.5s;
+}
+.language-switcher a:hover{
+    background-color: black;
+    color: white;
+}
 nav {
     display: flex;
     gap: 200px;
