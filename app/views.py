@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from .models import *
+from django.urls import reverse
 
 class MainView(generic.ListView):
     template_name = 'main.html'
@@ -58,3 +59,14 @@ class ParticipantView(generic.DetailView):
     template_name = 'participant.html'
     model = Participant
     context_object_name = 'participant'
+    
+def set_language(request):
+    """
+    Простейший view для переключения языка.
+    Ожидает GET-параметр ?lang=ru|kk|en и сохраняет его в сессии.
+    Затем возвращает на предыдущую страницу (или на корень).
+    """
+    lang = request.GET.get('lang', 'ru')
+    if lang in ('ru', 'kk'):
+        request.session['lang'] = lang
+    return redirect(request.META.get('HTTP_REFERER', reverse('main')))

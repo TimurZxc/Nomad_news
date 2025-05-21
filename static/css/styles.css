@@ -37,30 +37,56 @@ body {
     display: flex;
     flex-direction: column;
 }
-h1, h2 {
+
+h1,
+h2 {
     color: #333;
 }
+
 h1 {
     text-align: center;
     margin-bottom: 0.5em;
 }
+
 .section {
     margin-bottom: 2em;
-  }
-  ol {
+}
+
+ol,
+ul {
     margin-left: 1.5em;
-  }
-  li {
+}
+
+li {
     margin-bottom: 0.75em;
-  }
-  .sublist {
+}
+
+.sublist {
     margin-left: 2em;
     list-style-type: lower-alpha;
-  }
-  .note {
+}
+
+.note {
     margin-top: 0.5em;
     font-weight: bold;
-  }
+}
+.language-switcher{
+    display: flex;
+    justify-content: end;
+    gap: 0.2rem;
+}
+.language-switcher a{
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 2px;
+    transition: 0.5s;
+}
+.language-switcher a:hover{
+    background-color: black;
+    color: white;
+}
 nav {
     display: flex;
     gap: 200px;
@@ -87,9 +113,11 @@ main {
     object-position: center;
     /* Optional: centers the image within the container */
 }
-.nav-toggle{
+
+.nav-toggle {
     display: none;
 }
+
 .nav-links a {
     text-decoration: none;
     color: #c0a062;
@@ -611,6 +639,7 @@ button {
         text-decoration: none;
         /* This value should be high enough to fit your content */
     }
+
     /* Style for the toggle button */
     .nav-toggle {
         background: none;
@@ -660,10 +689,12 @@ button {
     .event-image {
         margin: 0 auto;
     }
-    .event-detail{
+
+    .event-detail {
         text-align: center;
     }
-    .news-detail-image{
+
+    .news-detail-image {
         margin: 0;
     }
 }
@@ -679,13 +710,16 @@ button {
     .news-info {
         padding: 0 15px;
     }
-    .main-block-news{
+
+    .main-block-news {
         padding: 0 15px;
     }
-    .event-detail{
+
+    .event-detail {
         padding: 0 15px;
     }
-    .news-text{
+
+    .news-text {
         padding: 0 15px;
     }
 }

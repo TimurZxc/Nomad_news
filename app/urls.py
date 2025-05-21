@@ -11,4 +11,5 @@ urlpatterns = [
     path('events/', EventsView.as_view(), name='events'),
     path('participants', ParticipantsView.as_view(), name='participants'),
     path('events/<int:pk>/', EventDetailView.as_view(), name='event'),
+    path('set-language/', set_language, name='set_language'),
 ]

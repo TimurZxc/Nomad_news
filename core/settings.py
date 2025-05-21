@@ -38,6 +38,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -53,6 +54,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'app.context_processors.translations',
             ],
         },
     },
@@ -64,24 +66,23 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Database backend (PostgreSQL in this example)
-        'NAME': 'nomad_db',                       # Name of the database
-        'USER': 'nomad',                   # Your database username
-        'PASSWORD': 'S3cret!@#123',                   # Your database password
-        'HOST': 'localhost',                        # Database host (e.g., localhost, an IP address, or domain)
-        'PORT': '5555',                             # Database port (default for PostgreSQL)
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',  # Database backend (PostgreSQL in this example)
+#         'NAME': 'nomad_db',                       # Name of the database
+#         'USER': 'nomad',                   # Your database username
+#         'PASSWORD': 'S3cret!@#123',                   # Your database password
+#         'HOST': 'localhost',                        # Database host (e.g., localhost, an IP address, or domain)
+#         'PORT': '5555',                             # Database port (default for PostgreSQL)
 #     }
 # }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -113,6 +114,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+USE_I18N = True
+
+LANGUAGES = [
+    ('kz', 'Kazakh'),
+    ('ru', 'Russian'),
+    # add whatever languages you need
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
