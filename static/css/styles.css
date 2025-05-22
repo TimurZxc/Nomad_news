@@ -83,6 +83,9 @@ li {
     padding: 2px;
     transition: 0.5s;
 }
+.main-block-news td{
+    padding: 0.2rem !important;
+}
 .language-switcher a:hover{
     background-color: black;
     color: white;

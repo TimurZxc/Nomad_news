@@ -47,7 +47,9 @@ h1 {
     text-align: center;
     margin-bottom: 0.5em;
 }
-
+.main-block-news td{
+    padding: 0.2rem !important;
+}
 .section {
     margin-bottom: 2em;
 }
