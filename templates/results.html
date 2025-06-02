@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load custom_filters %}
+<div class="all-news-container">
+    {% if results_list %}
+        <h1 class="all-news-title">Результаты</h1>
+    {% else %}
+        <h1 class="all-news-title">Результатов пока нет</h1>
+    {% endif %}
+    <div class="news-container">
+
+        <div class="main-block-news-items">
+            {% for result in results_list %}
+            <div class="main-block-news-item">
+                <div class="news-info">
+                    <a href="{% url 'result' result.id %}">
+                        <h3>{{ result.name }}</h3>
+                    </a>
+                    <p>{{ result.description|truncate:750|safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+            {% else %}
+            <span class="disabled">&laquo;</span>
+            {% endif %}
+
+            {% for i in page_obj.paginator.page_range %}
+            {% if page_obj.number == i %}
+            <span class="current active">{{ i }}</span>
+            {% elif i == page_obj.number|add:'-1' or i == page_obj.number|add:'1' %}
+            <a href="?page={{ i }}">{{ i }}</a>
+            {% elif i == 1 or i == page_obj.paginator.num_pages %}
+            <a href="?page={{ i }}">{{ i }}</a>
+            {% elif i == page_obj.number|add:'-2' or i == page_obj.number|add:'2' %}
+            <span class="ellipsis">...</span>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+            {% else %}
+            <span class="disabled">&raquo;</span>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

@@ -124,3 +124,34 @@ class EventVideo(models.Model):
         if self.video_url:
             self.video_id = extract_youtube_id(self.video_url)
         super().save(*args, **kwargs)
+
+class Result(models.Model):
+    name = models.CharField(max_length=255)
+    description = CKEditor5Field(null=True, blank = True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = 'Результат'
+        verbose_name_plural = 'Результаты'
+
+    def __str__(self):
+        return self.name
+    
+class ResultAttachment(models.Model):
+    result = models.ForeignKey(
+        Result,
+        on_delete=models.CASCADE,
+        related_name='attachments'
+    )
+    file = models.FileField(
+        upload_to='results/result_attachments/%Y/%m/%d/',
+    )
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Вложение результатов'
+        verbose_name_plural = 'Вложения результатов'
+
+    def __str__(self):
+        return f"{self.file.name}"

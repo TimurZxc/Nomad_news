@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+<div class="event-detail">
+    <h1>{{ result.name }}</h1>
+    {% if result.description %}
+    <div class="event-description">
+        {{ result.description|safe }}
+    </div>
+    {% endif %}
+    {% if result.attachments.all %}
+    <div class="news-files">
+        <h2>Вложения</h2>
+        {% for attachment in result.attachments.all %}
+        
+        <a href="{{ attachment.file.url }}"><span> 📑 </span>{{ attachment.file.name|basename }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

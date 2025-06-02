@@ -60,6 +60,21 @@ class ParticipantView(generic.DetailView):
     model = Participant
     context_object_name = 'participant'
     
+class ResultsView(generic.ListView):
+    template_name = 'results.html'
+    model = Result
+    context_object_name = 'results_list'
+    paginate_by = 4
+    
+    def get_queryset(self):
+        queryset = Result.objects.all().order_by('-created_at')
+        return queryset
+    
+class ResultDetailView(generic.DetailView):
+    model = Result
+    template_name = "result.html"
+    context_object_name = "result"
+    
 def set_language(request):
     """
     Простейший view для переключения языка.
