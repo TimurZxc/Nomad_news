@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-58xukmnoo25bf()%2#$zx14c*rzh!m)2yji$j5h&h9$hwip%1f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nomad-news.digitalforensics.kz', '127.0.0.1', 'localhost', '85.159.27.238']
 
@@ -66,23 +66,23 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',  # Database backend (PostgreSQL in this example)
-#         'NAME': 'nomad_db',                       # Name of the database
-#         'USER': 'nomad',                   # Your database username
-#         'PASSWORD': 'S3cret!@#123',                   # Your database password
-#         'HOST': 'localhost',                        # Database host (e.g., localhost, an IP address, or domain)
-#         'PORT': '5555',                             # Database port (default for PostgreSQL)
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # Database backend (PostgreSQL in this example)
+        'NAME': 'nomad_db',                       # Name of the database
+        'USER': 'nomad',                   # Your database username
+        'PASSWORD': 'S3cret!@#123',                   # Your database password
+        'HOST': 'localhost',                        # Database host (e.g., localhost, an IP address, or domain)
+        'PORT': '5555',                             # Database port (default for PostgreSQL)
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
